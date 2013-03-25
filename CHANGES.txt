@@ -1,5 +1,8 @@
 = Version history =
 
+x.x:
+- changed: better use of Elgg core function (requires Elgg 1.8.9+)
+
 1.0:
 
 - first release

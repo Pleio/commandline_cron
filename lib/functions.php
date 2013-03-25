@@ -5,9 +5,7 @@
 		
 		$site_guid = sanitise_int($site_guid, false);
 		
-		$site = elgg_get_site_entity($site_guid);
-		
-		if(!empty($site) && elgg_instanceof($site, "site", null, "ElggSite")){
+		if($site = elgg_get_site_entity($site_guid)){
 			$site_secret = get_site_secret();
 			
 			$result = md5($site->getGUID() . $site_secret . $site->time_created);
