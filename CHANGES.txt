@@ -1,6 +1,6 @@
 = Version history =
 
-x.x:
+1.0.1 (2013-04-05):
 - changed: better use of Elgg core function (requires Elgg 1.8.9+)
 
 1.0:
