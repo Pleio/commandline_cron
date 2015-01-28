@@ -50,7 +50,7 @@ $page = array($interval);
 
 try {
 	// trigger the cron
-	cron_page_handler($page);
+	_elgg_cron_page_handler($page);
 } catch (Exception $e) {
 	// something went wrong
 	echo $e->getMessage();

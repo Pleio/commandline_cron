@@ -11,17 +11,17 @@
  * @return false|string
  */
 function commandline_cron_generate_secret($site_guid = 0) {
-	$result = false;
 	
 	$site_guid = sanitise_int($site_guid, false);
 	
-	if ($site = elgg_get_site_entity($site_guid)) {
-		$site_secret = get_site_secret();
-		
-		$result = md5($site->getGUID() . $site_secret . $site->time_created);
+	$site = elgg_get_site_entity($site_guid);
+	if (empty($site)) {
+		return false;
 	}
 	
-	return $result;
+	$site_secret = get_site_secret();
+	
+	return md5($site->getGUID() . $site_secret . $site->time_created);
 }
 
 /**
@@ -32,15 +32,15 @@ function commandline_cron_generate_secret($site_guid = 0) {
  * @return bool
  */
 function commandline_cron_validate_secret($secret) {
-	$result = false;
 	
-	if (!empty($secret)) {
-		if ($correct_secret = commandline_cron_generate_secret()) {
-			if ($secret === $correct_secret) {
-				$result = true;
-			}
-		}
+	if (empty($secret)) {
+		return false;
 	}
 	
-	return $result;
+	$correct_secret = commandline_cron_generate_secret();
+	if (empty($correct_secret)) {
+		return false;
+	}
+	
+	return ($secret === $correct_secret);
 }

@@ -1,4 +1,5 @@
-= Installations instructions =
+Installations instructions
+==========================
 
 Go to the settings page of this plugin to get an example of the command line you need to configure.
 
