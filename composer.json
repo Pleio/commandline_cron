@@ -1,0 +1,7 @@
+{
+    "name": "coldtrick/commandline_cron",
+    "type": "elgg-plugin",
+    "require": {
+        "composer/installers": "~1.0"
+    }
+}
